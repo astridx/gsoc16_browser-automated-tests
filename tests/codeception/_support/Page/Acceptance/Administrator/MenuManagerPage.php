@@ -27,6 +27,14 @@ class MenuManagerPage extends AdminPage
 	public static $url = 'administrator/index.php?option=com_menus&view=items&menutype=mainmenu';
 
 	/**
+	 * Link to the menu manager
+	 *
+	 * @var    string
+	 * @since  __DEPLOY_VERSION__
+	 */
+	public static $url_menumanager = 'administrator/index.php?option=com_menus&view=menus';
+
+        /**
 	 * Locator for menu item name field
 	 *
 	 * @var    array
@@ -58,6 +66,30 @@ class MenuManagerPage extends AdminPage
 	 * @since  __DEPLOY_VERSION__
 	 */
 	public static $article = ['link' => 'Article'];
+
+	/**
+	 * Locator for menu title input field
+	 *
+	 * @var    array
+	 * @since  __DEPLOY_VERSION__
+	 */
+	public static $titleField = ['id' => 'jform_title'];
+
+	/**
+	 * Locator for menu type input field
+	 *
+	 * @var    array
+	 * @since  __DEPLOY_VERSION__
+	 */
+	public static $typeField = ['id' => 'jform_menutype'];
+
+	/**
+	 * Locator for menu description input field
+	 *
+	 * @var    array
+	 * @since  __DEPLOY_VERSION__
+	 */
+	public static $descriptionField = ['id' => 'jform_menudescription'];
 
 	/**
 	 * This method is to set page object to choose an article dynamically.
@@ -133,5 +165,24 @@ class MenuManagerPage extends AdminPage
 		$I->waitForElement(['xpath' => "//a[contains(text()[normalize-space()], '$menuItem')]"], '60');
 		$I->click(['xpath' => "//div[@id='collapseTypes']//a[contains(text()[normalize-space()], '$menuItem')]"]);
 		$I->comment('I switch back to the main window');
+	}
+	/**
+	 * Method is a page object to fill user form with given information and prepare to save user.
+	 *
+	 * @param   string  $title        Menu title
+	 * @param   string  $type         Menu type
+	 * @param   string  $description  Menu description
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 *
+	 * @return  void  The user's form will be filled with given detail
+	 */
+	public function fillUserForm($title, $type, $description)
+	{
+		$I = $this;
+
+		$I->fillField(self::$titleField, $title);
+		$I->fillField(self::$typeField, $type);
+		$I->fillField(self::$descriptionField, $description);
 	}
 }
