@@ -9,6 +9,9 @@ Feature: menu
 
   Scenario: Create a Menu
     Given There is a add menu link
-    When I create new menu with field title as "Menu One" and type as a "typeone" and field description as "Description One"
+    When I fill fields for creating menu
+      |     Title        |
+      |     Type         |
+      |     Description  |
     And I save a menu
     Then I should see "Menus", "Menu successfully saved"

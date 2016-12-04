@@ -169,20 +169,18 @@ class MenuManagerPage extends AdminPage
 	/**
 	 * Method is a page object to fill user form with given information and prepare to save user.
 	 *
-	 * @param   string  $title        Menu title
-	 * @param   string  $type         Menu type
-	 * @param   string  $description  Menu description
+	 * @param   array  $filled_fields        The filled fields
 	 *
 	 * @since   __DEPLOY_VERSION__
 	 *
 	 * @return  void  The user's form will be filled with given detail
 	 */
-	public function fillUserForm($title, $type, $description)
+	public function fillUserForm($filled_fields)
 	{
 		$I = $this;
 
-		$I->fillField(self::$titleField, $title);
-		$I->fillField(self::$typeField, $type);
-		$I->fillField(self::$descriptionField, $description);
+		$I->fillField(self::$titleField, $filled_fields['title']);
+		$I->fillField(self::$typeField, $filled_fields['type']);
+		$I->fillField(self::$descriptionField, $filled_fields['description']);
 	}
 }

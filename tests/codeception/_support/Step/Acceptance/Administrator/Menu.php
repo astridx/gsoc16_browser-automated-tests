@@ -38,23 +38,24 @@ class Menu extends Admin
 		$I->click('Menu Details');
 	}
 
-	/**
-	 * Method to fill create new menu form
+        /**
+	 * Method to fill a create new menu form
 	 *
-	 * @param   string  $title        Menu title
-	 * @param   string  $type         Menu type
-	 * @param   string  $description  Menu description
-	 *
-	 * @When I create new menu with field title as :arg1 and type as a :arg2 and field description as :arg3
+         * @When I fill fields for creating menu
 	 *
 	 * @since   __DEPLOY_VERSION__
 	 *
 	 * @return  void
-	 */
-	public function iCreateNewMenuWithFieldTitleAsAndTypeAsAAndFieldDescriptionAs($title, $type, $description)
-	{
-		$this->menuManagerPage->fillUserForm($title, $type, $description);
-	}
+	*/
+        public function iFillFieldsForCreatingMenu()
+        {
+            $filled_fields = [
+                "title" => "Title",
+                "type" => "Type",
+                "description" => "Description",
+            ];		
+            $this->menuManagerPage->fillUserForm($filled_fields);
+        }
 
 	/**
 	 * Method to save a menu
