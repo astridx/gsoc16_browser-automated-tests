@@ -39,24 +39,53 @@ class Menu extends Admin
 	}
 
         /**
-	 * Method to fill a create new menu form
+	 * Method to fill a create new menu form - fill the field title
 	 *
-         * @When I fill fields for creating menu
+         * @When I fill field Title for creating menu with :arg1
 	 *
 	 * @since   __DEPLOY_VERSION__
 	 *
 	 * @return  void
-	*/
-        public function iFillFieldsForCreatingMenu()
+   	 */
+        public function iFillFieldTitleForCreatingMenuWith($title)
         {
-            $filled_fields = [
-                "title" => "Title",
-                "type" => "Type",
-                "description" => "Description",
-            ];		
-            $this->menuManagerPage->fillUserForm($filled_fields);
+		$I = $this;
+
+		$I->fillField(MenuManagerPage::$titleField, $title);
         }
 
+        /**
+	 * Method to fill a create new menu form - fill the field type
+	 *
+         * @When I fill field Type for creating menu with :arg1
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 *
+	 * @return  void
+   	 */
+        public function iFillFieldTypeForCreatingMenuWith($type)
+        {
+		$I = $this;
+
+		$I->fillField(MenuManagerPage::$typeField, $type);
+        }
+
+        /**
+	 * Method to fill a create new menu form - fill the field description
+	 *
+         * @When I fill field Description for creating menu with :arg1
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 *
+	 * @return  void
+   	 */
+        public function iFillFieldDescriptionForCreatingMenuWith($description)
+        {
+		$I = $this;
+
+		$I->fillField(MenuManagerPage::$descriptionField, $description);
+        }
+         
 	/**
 	 * Method to save a menu
 	 *
