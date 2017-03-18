@@ -1,0 +1,54 @@
+Codeception 2.2.9
+
+Usage:
+  command [options] [arguments]
+
+Options:
+  -h, --help             Display this help message
+  -q, --quiet            Do not output any message
+  -V, --version          Display this application version
+      --ansi             Force ANSI output
+      --no-ansi          Disable ANSI output
+  -n, --no-interaction   Do not ask any interactive question
+  -c, --config[=CONFIG]  Use custom path for config
+  -v|vv|vvv, --verbose   Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+
+Available commands:
+  bootstrap             Creates default test suites and generates all required files
+  build                 Generates base classes for all suites
+  clean                 Cleans or creates _output directory
+  console               Launches interactive test console
+  dry-run               Prints step-by-step scenario-driven test or a feature
+  help                  Displays help for a command
+  list                  Lists commands
+  run                   Runs the test suites
+ config
+  config:validate       Validates and prints config to screen
+ generate
+  generate:cept         Generates empty Cept file in suite
+  generate:cest         Generates empty Cest file in suite
+  generate:environment  Generates empty environment config
+  generate:feature      Generates empty feature file in suite
+  generate:groupobject  Generates Group subscriber
+  generate:helper       Generates new helper
+  generate:pageobject   Generates empty PageObject class
+  generate:phpunit      Generates empty PHPUnit test without Codeception additions
+  generate:scenarios    Generates text representation for all scenarios
+  generate:stepobject   Generates empty StepObject class
+  generate:suite        Generates new test suite
+  generate:test         Generates empty unit test file in suite
+ gherkin
+  gherkin:snippets      Fetches empty steps from feature files of suite and prints code snippets for them
+  gherkin:steps         Prints all defined feature steps
+>  Available tests in the system:
+>  [1] banner.feature
+>  [2] install/InstallCest.php
+>  [3] users.feature
+>  [4] performance.feature
+>  [5] content.feature
+>  [6] fields.feature
+>  [7] category.feature
+>  [8] users_frontend.feature
+>  [9] extensions.feature
+>  [10] administratorlogin.feature
+>  

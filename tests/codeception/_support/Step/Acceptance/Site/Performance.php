@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Joomla.Test
  * @subpackage  Performance.Step
@@ -17,7 +18,8 @@ namespace Step\Acceptance\Site;
  * @since    __DEPLOY_VERSION__
  */
 class Performance extends \AcceptanceTester
-{
+	{
+
 	/**
 	 * Average loadtime in seconds
 	 *
@@ -25,7 +27,16 @@ class Performance extends \AcceptanceTester
 	 *
 	 * @since   __DEPLOY_VERSION__
 	 */
-	protected $loadtime =	0;
+	protected $loadtime = 0;
+
+	/**
+	 * Average memory_usage in bytes
+	 *
+	 * @var     String
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 */
+	protected $memory_usage = 0;
 
 	/**
 	 * Method to make sure that I am on a special site
@@ -64,9 +75,10 @@ class Performance extends \AcceptanceTester
 
 		// TODO Check if Debug Mode is activ
 
-		$averageSum = 0;
+		$averageSumSession = 0;
+		$averageSumMemory = 0;
 
-		for ($count = 1; $count < $times; $count++)
+		for ($count = 0; $count < $times; $count++)
 		{
 			$I->wait($wait);
 			$I->amOnPage($page);
@@ -90,13 +102,30 @@ class Performance extends \AcceptanceTester
 			$posLastEnde = strpos($lastString, ',') - 1;
 			$lastString = trim(substr($lastString, 0, $posLastEnde));
 
-			$averageSum = $averageSum + $lastString - $startString;
+			$averageSumSession = $averageSumSession + $lastString - $startString;
 
-			$I->expect('Start: ' . $lastString . ' Last: ' . $startString . ' AverageSum: ' . $averageSum);
+			$I->expect('SESSION - Start: ' . $lastString . ' Last: ' . $startString . ' AverageSum: ' . $averageSumSession);
+
+			$I->click("Memory Usage");
+
+			// Load the text in the DOM Element #dbg_container_session
+			$memoryParameters = $I->grabTextFrom('#dbg_container_memory_usage');
+
+			// Separate the end time (in the variable last)
+			$posLastBeginn = strpos($memoryParameters, '(') + 1;
+			$memoryString = substr($memoryParameters, $posLastBeginn);
+			$posLastEnde = strpos($memoryString, 'Bytes)');
+			$memoryString = str_replace(',', '',trim(substr($memoryString, 0, $posLastEnde)));
+
+			$averageSumMemory = $averageSumMemory + $memoryString;
+
+			$I->expect('MEMORY USAGE -: ' . $averageSumMemory . '--' . $memoryString);
 		}
 
-		$I->expect(' Average: ' . $averageSum / $times);
-		$this->loadtime = $averageSum / $times;
+		$I->expect(' Average Session Loadtime: ' . $averageSumSession / $times);
+		$I->expect(' Average Memory Usage: ' . $averageSumMemory / $times);
+		$this->loadtime = $averageSumSession / $times;
+		$this->memory_usage = $averageSumMemory / $times;
 	}
 
 	/**
@@ -117,10 +146,17 @@ class Performance extends \AcceptanceTester
 		if ($this->loadtime <= $requestedAverageLoadtime)
 		{
 			return true;
-		}
-		else
+		} else
 		{
 			throw new \Codeception\Exception\ConditionalAssertionFailed;
 		}
+	}
+
+	/**
+	 * @Then average memory should bee less than :arg1 bytes
+	 */
+	public function averageMemoryShouldBeeLessThanBytes($arg1)
+	{
+		$I = $this;
 	}
 }

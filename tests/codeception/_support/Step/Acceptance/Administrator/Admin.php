@@ -131,4 +131,21 @@ class Admin extends \AcceptanceTester
 		$I->waitForText($message, TIMEOUT, AdminPage::$systemMessageContainer);
 		$I->see($message, AdminPage::$systemMessageContainer);
 	}
+
+	/**
+	 * Function to select Toolbar buttons in Joomla! Admin Toolbar Panel
+	 *
+	 * @param   string  $button  The full name of the button
+	 *
+	 * @Given I click toolbar button :arg1
+	 *
+	 * @since   __DEPLOY_VERSION__
+	 *
+	 * @return  void
+	 */
+	public function iclickToolbarButton($button)
+	{
+		$I = $this;
+		$I->adminPage->clickToolbarButton($button);
+	}
 }

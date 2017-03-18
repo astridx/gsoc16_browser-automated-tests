@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @package     Joomla.Test
  * @subpackage  AcceptanceTester.Step
@@ -19,7 +20,8 @@ use Page\Acceptance\Administrator\ArticleManagerPage;
  * @since    __DEPLOY_VERSION__
  */
 class Content extends Admin
-{
+	{
+
 	/**
 	 * Method to click toolbar button new from article manager listing page.
 	 *
@@ -304,4 +306,39 @@ class Content extends Admin
 
 		$I->articleManagerPage->seeItemInTrash($article, 'Articles');
 	}
-}
+
+	/**
+	 * @When I fill fields for creating an Article
+	 */
+	public function iFillFieldsForCreatingAnArticle($field_params)
+	{
+		$I = $this;
+
+		$totalRows = count($field_params->getRows());
+		$lastIndex = ($totalRows - 1);
+
+		// Iterate over all rows
+		foreach ($field_params->getRows() as $index => $row)
+		{
+			if ($index !== 0)
+			{
+				$I->selectOptionInChosenById('jform_catid', '- '. $row[2]);
+
+				$this->articleManagerPage->fillContentCreateForm($row[0], $row[1]);
+
+			}
+
+
+			// Last Field should use Save & Close
+			if ($index == $lastIndex)
+			{
+				$I->adminPage->clickToolbarButton('Save & Close');
+				$I->comment('READY');
+			} else
+			{
+				$I->adminPage->clickToolbarButton('Save & New');
+			}
+		}
+	}
+
+	}

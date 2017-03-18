@@ -1,0 +1,330 @@
+Codeception 2.2.9
+
+Usage:
+  command [options] [arguments]
+
+Options:
+  -h, --help             Display this help message
+  -q, --quiet            Do not output any message
+  -V, --version          Display this application version
+      --ansi             Force ANSI output
+      --no-ansi          Disable ANSI output
+  -n, --no-interaction   Do not ask any interactive question
+  -c, --config[=CONFIG]  Use custom path for config
+  -v|vv|vvv, --verbose   Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+
+Available commands:
+  bootstrap             Creates default test suites and generates all required files
+  build                 Generates base classes for all suites
+  clean                 Cleans or creates _output directory
+  console               Launches interactive test console
+  dry-run               Prints step-by-step scenario-driven test or a feature
+  help                  Displays help for a command
+  list                  Lists commands
+  run                   Runs the test suites
+ config
+  config:validate       Validates and prints config to screen
+ generate
+  generate:cept         Generates empty Cept file in suite
+  generate:cest         Generates empty Cest file in suite
+  generate:environment  Generates empty environment config
+  generate:feature      Generates empty feature file in suite
+  generate:groupobject  Generates Group subscriber
+  generate:helper       Generates new helper
+  generate:pageobject   Generates empty PageObject class
+  generate:phpunit      Generates empty PHPUnit test without Codeception additions
+  generate:scenarios    Generates text representation for all scenarios
+  generate:stepobject   Generates empty StepObject class
+  generate:suite        Generates new test suite
+  generate:test         Generates empty unit test file in suite
+ gherkin
+  gherkin:snippets      Fetches empty steps from feature files of suite and prints code snippets for them
+  gherkin:steps         Prints all defined feature steps
+>  Available tests in the system:
+>  [1] banner.feature
+>  [2] install/InstallCest.php
+>  [3] users.feature
+>  [4] performance.feature
+>  [5] content.feature
+>  [6] fields.feature
+>  [7] category.feature
+>  [8] users_frontend.feature
+>  [9] extensions.feature
+>  [10] administratorlogin.feature
+>  
+Codeception PHP Testing Framework v2.2.9
+Powered by PHPUnit 4.8.35 by Sebastian Bergmann and contributors.
+
+[1mAcceptance Tests (3) [22m-----------------------------------------------------------
+Modules: [32mAsserts, JoomlaBrowser, \Helper\Acceptance, \Helper\JoomlaDb[39m
+--------------------------------------------------------------------------------
+[35;1mperformance:[39;22m Open Page
+Signature: [32mperformance:Open Page[39m
+Test: [32mtests/codeception/acceptance/performance.feature:Open Page[39m
+[33mScenario --[39m
+[1m [22mIn order to manage performance of the website
+[1m [22mAs an owner
+[1m [22mI need to call special tasks
+[1m Given [22mi am on page "/index.php/category-test-1" 
+[32m   I am on page "/index.php/category-test-1"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-1[39m
+[1m When [22mi call page "/index.php/category-test-1" "10" times and wait "1" seconds in between 
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-1"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-1[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987289 Last: 148987289 AverageSum: 0[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-1"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-1[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987289 Last: 148987289 AverageSum: 0[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-1"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-1[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987290 Last: 148987289 AverageSum: 1[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-1"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-1[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987290 Last: 148987289 AverageSum: 2[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-1"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-1[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987290 Last: 148987289 AverageSum: 3[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-1"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-1[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987290 Last: 148987289 AverageSum: 4[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-1"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-1[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987290 Last: 148987289 AverageSum: 5[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-1"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-1[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987290 Last: 148987289 AverageSum: 6[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-1"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-1[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987291 Last: 148987289 AverageSum: 8[39m
+[32m   I expect  Average: 0.8[39m
+[1m Then [22maverage load time should bee less than "1.4" seconds 
+[32;1m PASSED [39;22m
+
+[35;1mperformance:[39;22m Open Page
+Signature: [32mperformance:Open Page[39m
+Test: [32mtests/codeception/acceptance/performance.feature:Open Page[39m
+[33mScenario --[39m
+[1m [22mIn order to manage performance of the website
+[1m [22mAs an owner
+[1m [22mI need to call special tasks
+[1m Given [22mi am on page "/index.php/category-test-5" 
+[32m   I am on page "/index.php/category-test-5"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-5[39m
+[1m When [22mi call page "/index.php/category-test-5" "10" times and wait "1" seconds in between 
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-5"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-5[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987291 Last: 148987291 AverageSum: 0[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-5"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-5[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987291 Last: 148987291 AverageSum: 0[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-5"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-5[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987291 Last: 148987291 AverageSum: 0[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-5"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-5[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987291 Last: 148987291 AverageSum: 0[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-5"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-5[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987292 Last: 148987291 AverageSum: 1[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-5"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-5[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987292 Last: 148987291 AverageSum: 2[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-5"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-5[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987292 Last: 148987291 AverageSum: 3[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-5"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-5[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987292 Last: 148987291 AverageSum: 4[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-5"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-5[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987292 Last: 148987291 AverageSum: 5[39m
+[32m   I expect  Average: 0.5[39m
+[1m Then [22maverage load time should bee less than "1.4" seconds 
+[32;1m PASSED [39;22m
+
+[35;1mperformance:[39;22m Open Page
+Signature: [32mperformance:Open Page[39m
+Test: [32mtests/codeception/acceptance/performance.feature:Open Page[39m
+[33mScenario --[39m
+[1m [22mIn order to manage performance of the website
+[1m [22mAs an owner
+[1m [22mI need to call special tasks
+[1m Given [22mi am on page "/index.php/category-test-20" 
+[32m   I am on page "/index.php/category-test-20"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-20[39m
+[1m When [22mi call page "/index.php/category-test-20" "10" times and wait "1" seconds in between 
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-20"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-20[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987293 Last: 148987293 AverageSum: 0[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-20"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-20[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987293 Last: 148987293 AverageSum: 0[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-20"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-20[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987293 Last: 148987293 AverageSum: 0[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-20"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-20[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987293 Last: 148987293 AverageSum: 0[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-20"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-20[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987294 Last: 148987293 AverageSum: 1[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-20"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-20[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987294 Last: 148987293 AverageSum: 2[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-20"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-20[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987294 Last: 148987293 AverageSum: 3[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-20"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-20[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987294 Last: 148987293 AverageSum: 4[39m
+[32m   I wait "1"[39m
+[32m   I am on page "/index.php/category-test-20"[39m
+[36m  [GET] http://localhost/t365/index.php/category-test-20[39m
+[32m   I wait for element "#system-debug",30[39m
+[32m   I wait for element "#dbg_container_session",30[39m
+[32m   I click "Session"[39m
+[32m   I grab text from "#dbg_container_session"[39m
+[32m   I expect Start: 148987295 Last: 148987293 AverageSum: 6[39m
+[32m   I expect  Average: 0.6[39m
+[1m Then [22maverage load time should bee less than "1.4" seconds 
+[32;1m PASSED [39;22m
+
+--------------------------------------------------------------------------------
+
+
+Time: 59.54 seconds, Memory: 14.00MB
+
+[30;42mOK (3 tests, 0 assertions)[0m
+ERROR: No logger set for joomla_projects\robo\WaitForSeleniumStandaloneServer. Use $this->task(Foo::class) rather than new Foo() in loadTasks to ensure the builder can initialize task the task, or use $this->collectionBuilder()->taskFoo() if creating one task from within another. 
+in /var/www/html/gsoc16_browser-automated-tests/tests/codeception/vendor/consolidation/robo/src/Common/TaskIO.php:43
+
