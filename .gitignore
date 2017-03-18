@@ -141,6 +141,8 @@ Desktop.ini
 
 # System Test related files
 tests/codeception/acceptance.suite.yml
+tests/codeception/acceptance.suite_t365.yml
+tests/codeception/acceptance.suite_t37b.yml
 tests/codeception/_support/_generated/*TesterActions.php
 tests/codeception/joomla-cms3*
 tests/codeception/_output*
